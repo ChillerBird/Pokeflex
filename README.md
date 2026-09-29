@@ -30,10 +30,13 @@ Honestly, this project doesn't have much practical use, but that's kind of the p
 
 This is also my first project, so I hope y'all enjoy it! ❤️
 
-## To-do
+## Current project state
+The website now loads 6 specific Pokémon by default. there is no search nor music functions. for now the website looks pretty barebones but im actively working on adding new features and improving the project.
 
+### To-do
 - Add Pokémon search feature
 - add background music and music toggle button
+- make a background color change feature
 
 ## Technologies
 
