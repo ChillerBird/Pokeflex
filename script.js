@@ -135,12 +135,12 @@ s_input.addEventListener('keydown', function (keypress) {
 
 // Trainer sprites
 let trainers = [
-    "../Characters/red-gen3.png",
-    "../Characters/leaf-gen3.png",
-    "../Characters/ethan.png",
-    "../Characters/lyra.png",
-    "../Characters/brendan-gen3.png",
-    "../Characters/may-gen3.png"
+    "Characters/red-gen3.png",
+    "Characters/leaf-gen3.png",
+    "Characters/ethan.png",
+    "Characters/lyra.png",
+    "Characters/brendan-gen3.png",
+    "Characters/may-gen3.png"
 ];
 
 let char_num = 0;
