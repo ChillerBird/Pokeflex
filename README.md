@@ -1,6 +1,7 @@
 # Pokeflex
 
-<img width="1845" height="885" alt="Pokeflex preview" src="https://github.com/user-attachments/assets/5d1d0f15-fb80-4ef4-95cc-f08caef6acdb" />
+<img width="1864" height="907" alt="2026-09-30 18 35 23 localhost 423bdc702258" src="https://github.com/user-attachments/assets/84dbf5d7-8846-45ee-9f50-73fd2a0af3ca" />
+
 
 ## What is it and how does it work?
 
@@ -31,12 +32,10 @@ Honestly, this project doesn't have much practical use, but that's kind of the p
 This is also my first project, so I hope y'all enjoy it! ❤️
 
 ## Current project state
-The website now loads 6 specific Pokémon by default. there is no search nor music functions. for now the website looks pretty barebones but im actively working on adding new features and improving the project.
+The website now has a Pokémon search function. You can choose between 3 background color sets. the website is now functional. there is no background music though but i'm actively working on the project.
 
 ### To-do
-- Add Pokémon search feature
 - add background music and music toggle button
-- make a background color change feature
 
 ## Technologies
 
