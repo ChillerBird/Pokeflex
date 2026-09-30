@@ -1,11 +1,7 @@
-// Waits until the entire page has finished loading
 window.addEventListener("load", function () {
-
-    // Prints a message in the browser's console
     console.log("The page has loaded");
 });
 
-// Adds an event listener on box  ( Circle 1)
 document.querySelector('#box1').addEventListener('click', async function () {
 
     // Changes the background color of box1

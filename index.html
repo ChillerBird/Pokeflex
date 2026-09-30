@@ -3,36 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Pokeflex</title>
-    <!-- Makes the website scale correctly on phones and tablets -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Connects this HTML file to the CSS file -->
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
 </head>
+
 <body>
-<!-- Container that holds all 6 Pokémon boxes -->
-<div id="mons">
-    <!-- First row containing boxes 1, 2 and 3 -->
-    <div id="mons_row1">
-        <div id="box1" class="box">1</div>
-        <div id="box2" class="box">2</div>
-        <div id="box3" class="box">3</div>
+<div id="search">
+    <span class="material-symbols-outlined">
+        search
+    </span>
+    <input placeholder="Search Pokémon...">
+    <div id="search_button">Search</div>
+</div>
+
+<div id="main">
+    <div id="mons">
+        <div id="mons_row1">
+            <div id="box1" class="box">1</div>
+            <div id="box2" class="box">2</div>
+            <div id="box3" class="box">3</div>
+        </div>
+
+        <div id="mons_row2">
+            <div id="box4" class="box">4</div>
+            <div id="box5" class="box">5</div>
+            <div id="box6" class="box">6</div>
+        </div>
     </div>
-    <!-- Second row containing boxes 4, 5 and 6 -->
-    <div id="mons_row2">
-        <div id="box4" class="box">4</div>
-        <div id="box5" class="box">5</div>
-        <div id="box6" class="box">6</div>
+
+    <div id="characters">
+        <img id="character" src="Characters/red-gen3.png" alt="Pokémon trainer sprite">
     </div>
 </div>
-    
-<!-- Container for the Pokémon trainer character -->
-<div id="characters">
-    <!-- The character image that can be clicked to switch trainers -->
-    <img id="character" src="Characters/red-gen3.png" alt="Pokémon trainer sprite">
-</div>
-    
-<!-- Loads the JavaScript after the HTML has been loaded -->
+
 <script src="script.js"></script>
 
 </body>
 </html>
+
