@@ -63,12 +63,12 @@ document.querySelector('#box6').addEventListener('click', async function () {
 
 // Creates an array containing the paths to all trainer images
 let trainers = [
-    "../Characters/red-gen3.png",
-    "../Characters/leaf-gen3.png",
-    "../Characters/ethan.png",
-    "../Characters/lyra.png",
-    "../Characters/brendan-gen3.png",
-    "../Characters/may-gen3.png"
+    "Characters/red-gen3.png",
+    "Characters/leaf-gen3.png",
+    "Characters/ethan.png",
+    "Characters/lyra.png",
+    "Characters/brendan-gen3.png",
+    "Characters/may-gen3.png"
 ];
 
 // Keeps track of which trainer is currently being displayed
