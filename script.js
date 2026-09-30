@@ -1,71 +1,139 @@
-// Waits until the entire page has finished loading
-window.addEventListener("load", function () {
+let s_input = document.querySelector('#search_input');
+let s_button = document.querySelector('#search_button');
+let s_bar = document.querySelector('#search');
 
-    // Prints a message in the browser's console
-    console.log("The page has loaded");
+let selected_box = null;
+
+let type_colors = {
+    normal:   "#AAAA99",
+    fire:     "#FF4422",
+    water:    "#3399FF",
+    electric: "#FFCC33",
+    grass:    "#77CC55",
+    ice:      "#66CCFF",
+    fighting: "#BB5544",
+    poison:   "#AA5599",
+    ground:   "#DDBB55",
+    flying:   "#8899FF",
+    psychic:  "#FF5599",
+    bug:      "#AABB22",
+    rock:     "#BBAA66",
+    ghost:    "#6666BB",
+    dragon:   "#7766EE",
+    dark:     "#775544",
+    steel:    "#AAAABB",
+    fairy:    "#EE99EE"
+};
+
+let background_colors = [
+    ["#87CEEB", "#4CAF50"],
+    ["#FF4422", "#3399FF"],
+    ["#DDBB55", "#AA5599"]
+];
+
+let bgr_color = 0;
+document.querySelector('#bgr_change').addEventListener('click', function () {
+    bgr_color = bgr_color + 1;
+    if (bgr_color >= background_colors.length) {
+        bgr_color = 0;
+    }
+    let color1 = background_colors[bgr_color][0];
+    let color2 = background_colors[bgr_color][1];
+    document.body.style.background =
+        "linear-gradient(to bottom, " + color1 + ", " + color2 + ")";
 });
 
-// Adds an event listener on box  ( Circle 1)
-document.querySelector('#box1').addEventListener('click', async function () {
-
-    // Changes the background color of box1
-    document.querySelector('#box1').style.backgroundColor = "#FF4422";
-
-    // Sends a request to the PokéAPI to get Cinderace's data
-    // "await" waits for the API to send back a response
-    let response = await fetch("https://pokeapi.co/api/v2/pokemon/cinderace");
-
-    // Converts the response from JSON into a JavaScript object
-    let data = await response.json();
-
-    // Replaces the number "1" with an image
-    // data.sprites.front_default contains the URL of Cinderace's sprite
-    document.querySelector("#box1").innerHTML =
-        '<img src="' + data.sprites.front_default + '">';
+document.querySelectorAll('.box').forEach(function (box) {
+    box.addEventListener('click', function () {
+        if (selected_box) {
+            selected_box.classList.remove('selected');
+        }
+        selected_box = box;
+        box.classList.add('selected');
+        s_bar.classList.remove('hidden');
+        s_input.value = "";
+        s_input.placeholder = "Search Pokémon...";
+        s_input.focus();
+    });
 });
 
-document.querySelector('#box2').addEventListener('click', async function () {
-    document.querySelector('#box2').style.backgroundColor = "#A3A3B3";
-    let response = await fetch("https://pokeapi.co/api/v2/pokemon/corviknight");
-    let data = await response.json();
-    document.querySelector("#box2").innerHTML =
-        '<img src="' + data.sprites.front_default + '">';
+async function search_pokemon() {
+    let name = s_input.value.trim().toLowerCase();
+    if (name === "" || selected_box === null) {
+        return;
+    }
+
+    try {
+        let response = await fetch(
+            "https://pokeapi.co/api/v2/pokemon/" + name
+        );
+
+        if (!response.ok) {
+
+            s_input.value = "";
+            s_input.placeholder = "Pokémon not found, try again";
+            return;
+        }
+
+        let data = await response.json();
+        let sprite = data.sprites.front_default;
+        if (!sprite) {
+
+            s_input.value = "";
+            s_input.placeholder = "No sprite available";
+
+            return;
+        }
+
+        selected_box.innerHTML = "";
+
+        let img = document.createElement("img");
+
+        img.src = sprite;
+        img.alt = data.name;
+
+        selected_box.appendChild(img);
+
+        let types = data.types.map(function (e) {
+            return e.type.name;
+        });
+
+        let color1 = type_colors[types[0]];
+
+        if (types.length === 2) {
+            let color2 = type_colors[types[1]];
+            selected_box.style.background =
+                "linear-gradient(135deg, " + color1 + " 50%, " + color2 + " 50%)";
+        }
+
+        else {
+            selected_box.style.background = color1;
+        }
+
+        selected_box.classList.remove("selected");
+        selected_box = null;
+        s_input.value = "";
+        s_input.placeholder = "Search Pokémon...";
+        s_bar.classList.add("hidden");
+    }
+
+    catch (error) {
+        console.log("Something went wrong:", error);
+        s_input.value = "";
+        s_input.placeholder = "Network error, try again";
+
+    }
+}
+
+s_button.addEventListener('click', search_pokemon);
+s_input.addEventListener('keydown', function (keypress) {
+    if (keypress.key === 'Enter') {
+        search_pokemon();
+    }
+
 });
 
-document.querySelector('#box3').addEventListener('click', async function () {
-    document.querySelector('#box3').style.backgroundColor = "#3399FF";
-    let response = await fetch("https://pokeapi.co/api/v2/pokemon/drednaw");
-    let data = await response.json();
-    document.querySelector("#box3").innerHTML =
-        '<img src="' + data.sprites.front_default + '">';
-});
-
-document.querySelector('#box4').addEventListener('click', async function () {
-    document.querySelector('#box4').style.backgroundColor = "#AA5599";
-    let response = await fetch("https://pokeapi.co/api/v2/pokemon/toxtricity-amped");
-    let data = await response.json();
-    document.querySelector("#box4").innerHTML =
-        '<img src="' + data.sprites.front_default + '">';
-});
-
-document.querySelector('#box5').addEventListener('click', async function () {
-    document.querySelector('#box5').style.backgroundColor = "#7766EE";
-    let response = await fetch("https://pokeapi.co/api/v2/pokemon/dragapult");
-    let data = await response.json();
-    document.querySelector("#box5").innerHTML =
-        '<img src="' + data.sprites.front_default + '">';
-});
-
-document.querySelector('#box6').addEventListener('click', async function () {
-    document.querySelector('#box6').style.backgroundColor = "#DDBB55";
-    let response = await fetch("https://pokeapi.co/api/v2/pokemon/excadrill");
-    let data = await response.json();
-    document.querySelector("#box6").innerHTML =
-        '<img src="' + data.sprites.front_default + '">';
-});
-
-
-// Creates an array containing the paths to all trainer images
+// Trainer sprites
 let trainers = [
     "../Characters/red-gen3.png",
     "../Characters/leaf-gen3.png",
@@ -75,23 +143,11 @@ let trainers = [
     "../Characters/may-gen3.png"
 ];
 
-// Keeps track of which trainer is currently being displayed
-// Arrays start counting at 0, so Red is trainer 0
 let char_num = 0;
-
-
-// Finds the trainer image and waits for it to be clicked
 document.querySelector('#character').addEventListener('click', function () {
-    // Moves to the next trainer in the array
-    char_num = char_num + 1;
-
-    // Checks if we have gone past the last trainer
+    char_num++;
     if (char_num >= trainers.length) {
-
-        // Goes back to the first trainer which is array number 0 (Red)
         char_num = 0;
     }
-
-    // Changes the image source to the next trainer
     document.querySelector('#character').src = trainers[char_num];
 });

@@ -1,145 +1,191 @@
-/* Applies styles to the entire page */
 body {
-    /* Makes the body take up the entire height of the screen */
-    height: 100vh;
-
-    /* Turns the body into a flex container */
-    display: flex;
-
-    /* Centers the content horizontally */
-    justify-content: center;
-
-    /* Centers the content vertically */
-    align-items: center;
-
-    /* Creates 40px of space between the Pokémon boxes and trainer */
-    gap: 40px;
-
-    /* Creates a gradient from sky blue at the top to green at the bottom */
+    min-height: 100vh;
+    overflow: hidden;
     background: linear-gradient(to bottom, #87CEEB, #4CAF50);
 }
+#main {
+        display: flex;
+        min-height: 80vh;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+}
 
+#bgr_change{
+    display: flex;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    align-items: center;
+    padding: 14px;
+    background-color: white;
+    border-radius: 28px;
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
 
-/* Container containing both rows of Pokémon */
+.short_text, .xs_text{
+    display: none;
+}
+
+#search{
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    margin: 30px auto;
+    padding: 14px;
+    background-color: white;
+    border-radius: 28px;
+    width: max-content;
+}
+
+#search:hover{
+    background-color: whitesmoke;
+}
+
+input{
+    font-size: 16px;
+    font-family: "Comic Sans MS", sans-serif;
+    color: gray;
+    margin-left: 14px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    width: 200px;
+}
+
+#search_button{
+    background-color: #5B8DEF;
+    padding: 4px;
+    border-radius: 7px;
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+#search_button:hover{
+    cursor: pointer;
+    background-color: #4169D8;
+}
+
 #mons {
-    /* Makes the rows use flexbox */
     display: flex;
-
-    /* Places the rows underneath each other */
     flex-direction: column;
-
-    /* Creates 10px of space between the two rows */
     gap: 10px;
+
 }
 
-/* Styles both Pokémon rows */
 #mons_row1, #mons_row2 {
-    /* Places the Pokémon boxes next to each other */
     display: flex;
-
-    /* Creates 10px of space between the boxes */
     gap: 10px;
+    font-family: "Comic Sans MS" sans-serif;
 }
 
-
-/* Styles images inside the Pokémon rows */
 #mons_row1 img, #mons_row2 img {
-    /* Keeps pixel art sharp instead of smoothing the pixels */
     image-rendering: pixelated;
-
-    /* Makes the Pokémon image 150px tall */
     height: 150px;
-
-    /* Makes the Pokémon image 150px wide */
     width: 150px;
 }
 
-
-/* Styles every element with the "box" class */
 .box {
-    /* Sets the width of each box */
     width: 180px;
-
-    /* Sets the height of each box */
     height: 180px;
-
-    /* Makes the box a flex container */
     display: flex;
-
-    /* Centers the Pokémon image horizontally */
     justify-content: center;
-
-    /* Centers the Pokémon image vertically */
     align-items: center;
-
-    /* Gives the box a white background */
     background-color: white;
-
-    /* Adds a 4px white border */
     border: 4px solid white;
-
-    /* Makes the square box circular */
     border-radius: 100px;
+    cursor: pointer;
 }
 
+#search.hidden {
+    visibility: hidden;
+}
 
-/* Styles the trainer image */
+.box.selected {
+    border-color: gray;
+}
 #characters img {
-    /* Makes the trainer 250px wide */
     width: 250px;
-
-    /* Makes the trainer 250px tall */
     height: 250px;
-
-    /* Keeps the pixel-art style sharp */
     image-rendering: pixelated;
 }
 
+#box1{
+    font-family: "Comic Sans MS", sans-serif;
+}
+#box2{
+    font-family: "Comic Sans MS", sans-serif;
+}
+#box3{
+    font-family: "Comic Sans MS", sans-serif;
+}
+#box4{
+    font-family: "Comic Sans MS", sans-serif;
+}
+#box5{
+    font-family: "Comic Sans MS", sans-serif;
+}
+#box6{
+    font-family: "Comic Sans MS", sans-serif;
+}
 
-/* Tablet size */
 @media (max-width: 768px) {
-
-    /* Changes the main layout from horizontal to vertical */
-    body {
+    #main {
         flex-direction: column;
     }
+    #search {
+        margin-top: 90px;
+    }
+    .short_text{
+        display: inline;
+    }
+    .big_text, .xs_text{
+        display: none;
+    }
 
-    /* Makes the Pokémon boxes smaller on tablets */
     .box {
         width: 140px;
         height: 140px;
     }
 
-    /* Makes the trainer smaller on tablets */
     #character img {
         width: 180px;
         height: 180px;
     }
 
-    /* Makes the Pokémon images smaller on tablets */
-    #mons_row1 img, #mons_row2 img {
-        height: 110px;
-        width: 110px;
+        #mons_row1 img, #mons_row2 img {
+            height: 110px;
+            width: 110px;
     }
 }
 
-
-/* Phone size */
 @media (max-width: 480px) {
+    #bgr_change {
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #search {
+        margin-top: 80px;
+    }
+    .xs_text{
+        display: inline;
+    }
+    .big_text, .short_text{
+        display: none;
+    }
 
-    /* Makes the Pokémon boxes even smaller on phones */
     .box {
         width: 100px;
         height: 100px;
     }
 
-    /* Makes the trainer smaller on phones */
     #character img {
         width: 140px;
         height: 140px;
     }
 
-    /* Makes the Pokémon images smaller on phones */
     #mons_row1 img, #mons_row2 img {
         height: 70px;
         width: 70px;
