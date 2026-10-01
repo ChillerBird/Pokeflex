@@ -3,15 +3,16 @@ body {
     overflow: hidden;
     background: linear-gradient(to bottom, #87CEEB, #4CAF50);
 }
+
 #main {
-        display: flex;
-        min-height: 80vh;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
+    display: flex;
+    min-height: 80vh;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
 }
 
-#bgr_change{
+#bgr_change {
     display: flex;
     position: absolute;
     top: 30px;
@@ -25,14 +26,56 @@ body {
     cursor: pointer;
 }
 
-.short_text, .xs_text{
+#clear_pokemons {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    align-items: center;
+    padding: 14px;
+    background-color: white;
+    border-radius: 28px;
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#remove_1 {
+    display: flex;
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    align-items: center;
+    padding: 14px;
+    background-color: white;
+    border-radius: 28px;
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#shiny_button {
+    display: flex;
+    position: absolute;
+    top: 170px;
+    right: 30px;
+    align-items: center;
+    padding: 14px;
+    background-color: white;
+    border-radius: 28px;
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.short_text, .xs_text {
     display: none;
 }
 
-#search{
+#search {
     display: flex;
     align-items: center;
-    justify-content: center ;
+    justify-content: center;
     margin: 30px auto;
     padding: 14px;
     background-color: white;
@@ -40,11 +83,11 @@ body {
     width: max-content;
 }
 
-#search:hover{
+#search:hover {
     background-color: whitesmoke;
 }
 
-input{
+input {
     font-size: 16px;
     font-family: "Comic Sans MS", sans-serif;
     color: gray;
@@ -55,14 +98,14 @@ input{
     width: 200px;
 }
 
-#search_button{
+#search_button {
     background-color: #5B8DEF;
     padding: 4px;
     border-radius: 7px;
     font-family: "Comic Sans MS", sans-serif;
 }
 
-#search_button:hover{
+#search_button:hover {
     cursor: pointer;
     background-color: #4169D8;
 }
@@ -102,31 +145,45 @@ input{
     visibility: hidden;
 }
 
+#remove_1.hidden {
+    visibility: hidden;
+}
+
+#shiny_button.hidden {
+    visibility: hidden;
+}
+
 .box.selected {
     border-color: gray;
 }
+
 #characters img {
     width: 250px;
     height: 250px;
     image-rendering: pixelated;
 }
 
-#box1{
+#box1 {
     font-family: "Comic Sans MS", sans-serif;
 }
-#box2{
+
+#box2 {
     font-family: "Comic Sans MS", sans-serif;
 }
-#box3{
+
+#box3 {
     font-family: "Comic Sans MS", sans-serif;
 }
-#box4{
+
+#box4 {
     font-family: "Comic Sans MS", sans-serif;
 }
-#box5{
+
+#box5 {
     font-family: "Comic Sans MS", sans-serif;
 }
-#box6{
+
+#box6 {
     font-family: "Comic Sans MS", sans-serif;
 }
 
@@ -134,29 +191,33 @@ input{
     #main {
         flex-direction: column;
     }
+
     #search {
         margin-top: 90px;
     }
-    .short_text{
+
+    .short_text {
         display: inline;
     }
-    .big_text, .xs_text{
+
+    .big_text, .xs_text {
         display: none;
     }
+
 
     .box {
         width: 140px;
         height: 140px;
     }
 
-    #character img {
+    #characters img {
         width: 180px;
         height: 180px;
     }
 
-        #mons_row1 img, #mons_row2 img {
-            height: 110px;
-            width: 110px;
+    #mons_row1 img, #mons_row2 img {
+        height: 110px;
+        width: 110px;
     }
 }
 
@@ -166,13 +227,16 @@ input{
         left: 50%;
         transform: translateX(-50%);
     }
+
     #search {
         margin-top: 80px;
     }
-    .xs_text{
+
+    .xs_text {
         display: inline;
     }
-    .big_text, .short_text{
+
+    .big_text, .short_text {
         display: none;
     }
 
@@ -181,7 +245,7 @@ input{
         height: 100px;
     }
 
-    #character img {
+    #characters img {
         width: 140px;
         height: 140px;
     }
