@@ -1,6 +1,6 @@
 # Pokeflex
 
-<img width="1864" height="907" alt="2026-09-30 18 35 23 localhost 423bdc702258" src="https://github.com/user-attachments/assets/84dbf5d7-8846-45ee-9f50-73fd2a0af3ca" />
+<img width="1864" height="907" alt="2026-10-01 21 03 25 localhost a2bfc29ee167" src="https://github.com/user-attachments/assets/540bf29f-6b6a-46ea-8d22-fd98e246d4d7" />
 
 https://chillerbird.github.io/Pokeflex/
 
